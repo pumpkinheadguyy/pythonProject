@@ -1,4 +1,8 @@
-﻿import math
+import math
+
+
+def dot_line():
+    pass
 
 
 class Line:
@@ -59,26 +63,9 @@ class Vec:
         pass
 
 
-def line_intersection(line1, line2):
-    xdiff = (line1[0][0] - line1[1][0], line2[0][0] - line2[1][0])
-    ydiff = (line1[0][1] - line1[1][1], line2[0][1] - line2[1][1])
-
-    def det(a, b):
-        return a[0] * b[1] - a[1] * b[0]
-
-    div = det(xdiff, ydiff)
-    if div == 0:
-       raise Exception('lines do not intersect')
-
-    d = (det(*line1), det(*line2))
-    x = det(d, xdiff) / div
-    y = det(d, ydiff) / div
-    return x, y
-
-
 if __name__ == '__main__':
     with open('intersec.in', 'r') as input_file:
-        a, b, c, d, e, i = (map(int, input_file.read().split()))
-    line1 = Line.from_abc(a, b, c)
+        a, b, c, d, e = (map(int, input_file.read().split()))
+    point1 = Vec.from_abc(a, b)
     line2 = Line.from_abc(c, d, e)
-    print(line_intersection(line1, line2))
+    print(dot_line(point1, line2))

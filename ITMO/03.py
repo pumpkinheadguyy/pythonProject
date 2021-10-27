@@ -1,3 +1,10 @@
+class Result:
+    def __init__(self, cent, nam, jumps):
+        self.cent = cent
+        self.nam = nam
+        self.jumps = jumps
+
+
 jumpers = []
 a = int(input())
 for x in range(a):
