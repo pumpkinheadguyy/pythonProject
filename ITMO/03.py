@@ -8,13 +8,15 @@ class Result:
 jumpers = []
 a = int(input())
 for x in range(a):
-    li = list(input())
+    li = input().split(' ')
     cent = li[0]
     nam = li[1] + ' ' + li[2]
     del li[0:3]
     jumps = []
     for y in range(len(li)):
         if li[y] != 'x':
-            jumps.append(float(li[y]))
+            jumps.append(li[y])
     jumpers.append(Result(cent, nam, jumps))
+    jumps = []
+print(jumpers, jumpers[0].cent, jumpers[0].nam, end=', ')
 
